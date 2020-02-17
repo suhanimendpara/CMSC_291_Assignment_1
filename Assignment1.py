@@ -16,8 +16,8 @@ BRAIN = 2
 def avg_num(data_list):
     """
     A function that will average a list of numbers.
-    Preconditions:
-    Postconditions:
+    Preconditions: all values in the list must be positive floats
+    Postconditions: the value returned must be a positive float
     :param: data_list, list of data
     :return: integer, average number of list
     """
@@ -33,8 +33,9 @@ def avg_num(data_list):
 def median_number (data_list):
     """
     A function that will find the median number in a list of numbers.
-    Preconditions:
-    Postconditions:
+    Preconditions: all values in the list must be ordered in increasing order,
+                   all values must be positive floats
+    Postconditions: the value returned must be a positive float
     :param: data_list - list of data
     :return: integer - median number of list
     """
@@ -53,8 +54,8 @@ def median_number (data_list):
 def standard_dev(data_list, avg_num):
     """
     A function that will find the standard deviation of a list of numbers.
-    Preconditions:
-    Postconditions:
+    Preconditions: all values in the list must be positive floats
+    Postconditions: the value returned must be a positive float
     :param:  list of data either body or brain weights
     :param: float of average number
     :return: integer - standard deviation of list
@@ -77,8 +78,8 @@ def standard_dev(data_list, avg_num):
 def filter_body(data):
     """
     A function that will filter the 2D list for body weight.
-    Preconditions:
-    Postconditions:
+    Preconditions: the list must be a 2D list
+    Postconditions: the list must be a 1D list
     :param: data_list, 2D list of data
     :return: body_weight, list of body weights
     """
@@ -93,8 +94,8 @@ def filter_body(data):
 def filter_brain(data):
     """
     A function that will filter the 2D list for brain weight
-    Preconditions:
-    Postconditions:
+    Preconditions: the list must be a 2D list
+    Postconditions: the list must be a 1D list
     :param data_list, 2D list of data
     :return: brain_weight, list of brain weights
     """
@@ -109,8 +110,8 @@ def filter_brain(data):
 def make_2D_list(filename):
     """
     A function that reads a file of data values and stores them in a list.
-    Preconditions:
-    Postconditions:
+    Preconditions: file inputted must be a string type
+    Postconditions: the returned value is must be a 2D list
     :param: filename, a string filename
     :return: 2D list, a list of float values
     """
@@ -131,7 +132,7 @@ def make_2D_list(filename):
     return data_list
 
 if __name__ == '__main__':
-    filename = "Sample-Data-Animal-Weights.csv"
+    filename = input("Enter in the name of the file: ")
     data_list = make_2D_list(filename)
     data_list.remove(data_list[0])             # removes the title line of the 2D list
     body_weight = filter_body(data_list)
